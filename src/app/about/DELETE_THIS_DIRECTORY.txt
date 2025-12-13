@@ -1,0 +1,3 @@
+This file marks the /about directory for deletion.
+The about page has been removed due to persistent errors.
+All about-related files should be deleted.

@@ -1,0 +1,33 @@
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.git
+Disallow: /.next
+Disallow: /node_modules/
+Disallow: *.pdf
+Disallow: *.mp4
+Disallow: /private/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+# Allow faster crawling for Google
+User-agent: Googlebot
+Crawl-delay: 0
+Request-rate: 120/1m
+
+# Link to sitemap
+Sitemap: https://mentalmind.in/sitemap.xml
+
+# Crawl delay for other bots
+Crawl-delay: 1
+Request-rate: 30/1m

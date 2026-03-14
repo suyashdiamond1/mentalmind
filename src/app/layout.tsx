@@ -95,7 +95,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'MentalMind',
               url: 'https://mentalmind.in',
-              logo: 'https://mentalmind.in/logo.png',
+              logo: 'https://mentalmind.in/assets/images/logo.svg',
               description: 'AI-powered mental health support platform for students',
               foundingDate: '2024',
               areaServed: 'Worldwide',

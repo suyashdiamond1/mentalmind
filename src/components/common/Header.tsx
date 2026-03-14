@@ -1,5 +1,6 @@
-'use client';
+"use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -14,8 +15,9 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/homepage" className="text-2xl font-bold text-indigo-600">
-          🧠 Mental Health Support
+        <Link href="/homepage" className="flex items-center gap-3">
+          <Image src="/assets/images/logo.svg" alt="MentalMind logo" width={140} height={48} priority />
+          <span className="hidden md:inline-block text-2xl font-bold text-indigo-600">Mental Health Support</span>
         </Link>
         
         <button

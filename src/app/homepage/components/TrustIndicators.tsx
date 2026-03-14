@@ -5,7 +5,7 @@ export default function TrustIndicators() {
     { value: '5,000+', label: 'Students Helped' },
     { value: '24/7', label: 'Available Support' },
     { value: '100%', label: 'Confidential' },
-    { value: '50+', label: 'Universities' },
+    { value: '15+', label: 'Universities' },
   ];
 
   return (

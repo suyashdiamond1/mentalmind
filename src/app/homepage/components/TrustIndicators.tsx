@@ -2,7 +2,7 @@
 
 export default function TrustIndicators() {
   const stats = [
-    { value: '5,000+', label: 'Students Helped' },
+    { value: '56k+', label: 'Students Helped' },
     { value: '24/7', label: 'Available Support' },
     { value: '100%', label: 'Confidential' },
     { value: '15+', label: 'Universities' },

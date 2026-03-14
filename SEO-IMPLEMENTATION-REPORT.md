@@ -74,6 +74,7 @@ This document outlines the comprehensive SEO strategy and implementation for men
 - Type: HealthApplication
 - Price: Free (0 USD)
 - Aggregate Rating: 4.8/5 (based on 5000 users)
+ - Aggregate Rating: 4.8/5 (based on 56000 users)
 - Features: 6 key features listed
 - Application Category: HealthApplication
 

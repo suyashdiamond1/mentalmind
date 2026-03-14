@@ -87,9 +87,9 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             <span className="text-blue-100 font-medium">Available Support</span>
           </div>
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all hover:scale-105 shadow-xl">
-            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="flex items-center justify-center gap-3 mb-2">
               <span className="text-4xl">🎓</span>
-              <span className="text-3xl font-bold">5,000+</span>
+              <span className="text-3xl font-bold">56k+</span>
             </div>
             <span className="text-blue-100 font-medium">Students Helped</span>
           </div>

@@ -37,7 +37,7 @@ export const metadata = {
     creator: '@mentalmind',
   },
   icons: {
-    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
+    icon: [{ url: '/assets/images/logo.svg', type: 'image/svg+xml' }],
     apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
@@ -134,7 +134,7 @@ export default function RootLayout({
               aggregateRating: {
                 '@type': 'AggregateRating',
                 ratingValue: '4.8',
-                ratingCount: '5000',
+                ratingCount: '56000',
                 bestRating: '5',
                 worstRating: '1',
               },

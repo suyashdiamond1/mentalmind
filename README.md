@@ -95,3 +95,31 @@ You can check out the [Next.js GitHub repository](https://github.com/vercel/next
 - Styled with Tailwind CSS
 
 Built with ❤️ on Rocket.new
+
+## 🔐 Authentication (Google Sign-in)
+
+This project uses Supabase for authentication. A Google Sign-in button is included on the login page and uses Supabase OAuth to authenticate users.
+
+Setup steps:
+
+1. Create a Google Cloud project and configure OAuth credentials:
+  - Go to the [Google Cloud Console](https://console.cloud.google.com/).
+  - Create a project (or use an existing one).
+  - Configure the OAuth consent screen (set application name, support email, and any required scopes).
+  - Create OAuth 2.0 Client ID (Application type: Web application).
+  - Add the following Authorized redirect URI for the Google credential:
+    - `https://<your-supabase-project>.supabase.co/auth/v1/callback`
+
+2. Configure Google provider in Supabase:
+  - Open your Supabase project → Authentication → Settings → External OAuth Providers.
+  - Paste the Google Client ID and Client Secret from the Google Cloud Console.
+  - Save changes.
+
+3. Ensure environment variables are set locally and in production:
+  - `NEXT_PUBLIC_SUPABASE_URL` — your Supabase project URL
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — your Supabase anon/public key
+
+4. Optional: Redirect after login
+  - The app currently requests a redirect to `/dashboard` after successful OAuth sign-in. Adjust the redirect target in `src/contexts/AuthContext.tsx` if you need a different path.
+
+After configuration, click the "Sign in with Google" button on the login page to sign in.

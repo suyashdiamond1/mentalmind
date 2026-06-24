@@ -6,11 +6,12 @@ import { useAuth } from '@/contexts/AuthContext';
 
 export default function LoginPage() {
   const router = useRouter();
-  const { signIn } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [oauthLoading, setOauthLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +25,16 @@ export default function LoginPage() {
       setLoading(false);
     } else {
       router.push('/dashboard');
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setError('');
+    setOauthLoading(true);
+    const { error: oAuthError } = await signInWithGoogle();
+    if (oAuthError) {
+      setError(oAuthError.message);
+      setOauthLoading(false);
     }
   };
 
@@ -89,6 +100,32 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
+
+        <div className="mt-4">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-gray-500">Or continue with</span>
+            </div>
+          </div>
+
+          <button
+            onClick={handleGoogleSignIn}
+            type="button"
+            disabled={oauthLoading}
+            className="mt-4 w-full inline-flex items-center justify-center gap-3 border border-gray-300 py-2 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#4285F4" d="M533.5 278.4c0-18.5-1.6-36.2-4.6-53.4H272v101h146.9c-6.3 33.8-25 62.5-53.6 81.6v67.9h86.6c50.6-46.6 81.6-115.3 81.6-197.1z"/>
+              <path fill="#34A853" d="M272 544.3c72.6 0 133.6-24.1 178.1-65.3l-86.6-67.9c-24.1 16.2-55 25.7-91.5 25.7-70.4 0-130-47.5-151.4-111.4H31.3v69.9C75.8 486.5 167 544.3 272 544.3z"/>
+              <path fill="#FBBC05" d="M120.6 326.4c-10.8-31.9-10.8-66.7 0-98.6V157.9H31.3c-39.4 78.5-39.4 171.3 0 249.8l89.3-81.3z"/>
+              <path fill="#EA4335" d="M272 107.7c38.9 0 73.9 13.4 101.4 39.9l76-76C405.8 24.6 344.8 0 272 0 167 0 75.8 57.8 31.3 142.8l89.3 69.9C142 155.2 201.6 107.7 272 107.7z"/>
+            </svg>
+            <span>{oauthLoading ? 'Redirecting...' : 'Sign in with Google'}</span>
+          </button>
+        </div>
 
         <div className="mt-6 text-center">
           <p className="text-gray-600 text-sm">

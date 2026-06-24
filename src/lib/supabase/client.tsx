@@ -87,7 +87,13 @@ export const supabase = createClient<Database>(
     auth: {
       persistSession: true, // Keep user logged in across page refreshes
       autoRefreshToken: true, // Automatically refresh expired tokens
-      detectSessionInUrl: true, // Support magic link authentication
+      // Disable automatic URL session detection here and handle the
+      // OAuth callback explicitly in a client-side callback page to
+      // avoid SSR/timing issues with the Next.js App Router.
+      // Enable URL session detection only when running in the browser.
+      // This allows the Supabase client to parse OAuth redirect URLs
+      // in the client bundle while remaining disabled on the server.
+      detectSessionInUrl: typeof window !== 'undefined',
     },
   }
 );

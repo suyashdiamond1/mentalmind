@@ -75,6 +75,9 @@ export default function LoginPage() {
               placeholder="••••••••"
               required
             />
+            <div className="mt-2 text-right">
+              <a href="/forgot-password" className="text-sm text-indigo-600 hover:underline">Forgot password?</a>
+            </div>
           </div>
 
           {error && (

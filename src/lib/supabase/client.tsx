@@ -80,23 +80,50 @@ if (!supabaseUrl || !supabaseAnonKey) {
  * Always use the anon/public key (not the service role key) for client-side code.
  * The service role key bypasses RLS and should ONLY be used in secure server environments.
  */
-export const supabase = createClient<Database>(
-  supabaseUrl!,
-  supabaseAnonKey!,
-  {
-    auth: {
-      persistSession: true, // Keep user logged in across page refreshes
-      autoRefreshToken: true, // Automatically refresh expired tokens
-      // Disable automatic URL session detection here and handle the
-      // OAuth callback explicitly in a client-side callback page to
-      // avoid SSR/timing issues with the Next.js App Router.
-      // Enable URL session detection only when running in the browser.
-      // This allows the Supabase client to parse OAuth redirect URLs
-      // in the client bundle while remaining disabled on the server.
-      detectSessionInUrl: typeof window !== 'undefined',
-    },
-  }
-);
+// Create the Supabase client only when configuration is present.
+// If the environment variables are missing we export a lightweight stub
+// that surfaces a clear error instead of crashing during module evaluation.
+let _supabase: any = null;
+if (supabaseUrl && supabaseAnonKey) {
+  _supabase = createClient<Database>(
+    supabaseUrl,
+    supabaseAnonKey,
+    {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: typeof window !== 'undefined',
+      },
+    }
+  );
+} else {
+  const missing = [];
+  if (!supabaseUrl) missing.push('NEXT_PUBLIC_SUPABASE_URL');
+  if (!supabaseAnonKey) missing.push('NEXT_PUBLIC_SUPABASE_ANON_KEY');
+  console.error('Supabase not configured. Missing environment variables:', missing.join(', '));
+
+  // Proxy that throws a clear error when any property is accessed.
+  const message = `Supabase is not configured. Set ${missing.join(
+    ', '
+  )} in your environment (e.g. .env.local) and restart the dev server.`;
+
+  _supabase = new Proxy(
+    {},
+    {
+      get() {
+        throw new Error(message);
+      },
+      apply() {
+        throw new Error(message);
+      },
+      construct() {
+        throw new Error(message);
+      },
+    }
+  );
+}
+
+export const supabase = _supabase as typeof import('@supabase/supabase-js').SupabaseClient;
 
 /**
  * ==========================================

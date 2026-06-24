@@ -10,6 +10,8 @@ interface AuthContextType {
   signInWithGoogle: () => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, metadata?: { full_name?: string; student_id?: string; university?: string; age?: number }) => Promise<{ error: Error | null }>;
   signOut: () => Promise<{ error: Error | null }>;
+  requestPasswordReset: (email: string) => Promise<{ error: Error | null }>;
+  updatePassword: (password: string) => Promise<{ error: Error | null }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -118,6 +120,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const requestPasswordReset = async (email: string) => {
+    try {
+      // Sends a password recovery email containing a secure link
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: typeof window !== 'undefined' ? `${window.location.origin}/auth/reset` : undefined,
+      } as any);
+      return { error };
+    } catch (error) {
+      return { error: error as Error };
+    }
+  };
+
+  const updatePassword = async (password: string) => {
+    try {
+      // When user follows the recovery link Supabase will restore the session
+      // from the URL. With an active session, updateUser can change the password.
+      const { error } = await supabase.auth.updateUser({ password } as any);
+      return { error };
+    } catch (error) {
+      return { error: error as Error };
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -125,6 +150,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     signInWithGoogle,
     signUp,
     signOut,
+    requestPasswordReset,
+    updatePassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

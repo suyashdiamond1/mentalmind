@@ -122,12 +122,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const requestPasswordReset = async (email: string) => {
     try {
-      // Sends a password recovery email containing a secure link
+      // Determine the redirect URL for recovery link
+      let redirectTo: string | undefined;
+      if (typeof window !== 'undefined') {
+        // Use the current origin to build an absolute URL for the recovery redirect
+        const baseUrl = window.location.origin;
+        redirectTo = `${baseUrl}/auth/reset`;
+      }
+
+      // Sends a password recovery email containing a secure link with recovery tokens
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: typeof window !== 'undefined' ? `${window.location.origin}/auth/reset` : undefined,
+        redirectTo,
       } as any);
+      
+      if (!error) {
+        console.log('Password recovery email sent to:', email);
+      } else {
+        console.error('Error sending recovery email:', error);
+      }
+      
       return { error };
     } catch (error) {
+      console.error('Unexpected error in requestPasswordReset:', error);
       return { error: error as Error };
     }
   };

@@ -91,26 +91,25 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
-        <h2 className="text-2xl font-semibold mb-4">Choose a new password</h2>
-        <p className="text-sm text-gray-600 mb-6">Create a new password for your account.</p>
+    <div className="min-h-screen flex items-center justify-center bg-stone-50 px-4">
+      <div className="max-w-md w-full bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-stone-100 p-8 sm:p-10">
+        <h2 className="text-2xl font-semibold text-stone-800 mb-4">Choose a new password</h2>
+        <p className="text-sm text-stone-500 mb-8">Create a new password for your account.</p>
 
-        {/* Show error if no recovery session */}
         {!sessionReady && !error && (
           <div className="flex items-center justify-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-2 border-indigo-600 border-t-transparent"></div>
-            <span className="ml-3 text-sm text-gray-600">Verifying recovery link...</span>
+            <div className="animate-spin rounded-full h-8 w-8 border-2 border-emerald-600 border-t-transparent"></div>
+            <span className="ml-3 text-sm text-stone-600 font-medium">Verifying recovery link...</span>
           </div>
         )}
 
         {/* Show validation error if recovery session check failed */}
         {error && !sessionReady && (
-          <div className="space-y-4">
-            <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded p-3">{error}</div>
+          <div className="space-y-5">
+            <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl p-4">{error}</div>
             <button
               onClick={() => router.push('/forgot-password')}
-              className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700"
+              className="w-full bg-emerald-700 text-white py-3.5 px-4 rounded-xl font-medium hover:bg-emerald-800 transition-colors shadow-sm"
             >
               Request new recovery email
             </button>
@@ -119,38 +118,38 @@ export default function ResetPasswordPage() {
 
         {/* Show form only if recovery session is ready */}
         {sessionReady && (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">New password</label>
+              <label className="block text-sm font-medium text-stone-700 mb-2">New password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 disabled={loading}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent disabled:bg-gray-100"
+                className="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors disabled:bg-stone-100"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Confirm password</label>
+              <label className="block text-sm font-medium text-stone-700 mb-2">Confirm password</label>
               <input
                 type="password"
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 required
                 disabled={loading}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent disabled:bg-gray-100"
+                className="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors disabled:bg-stone-100"
               />
             </div>
 
-            {error && <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded p-2">{error}</div>}
-            {message && <div className="text-sm text-green-600 bg-green-50 border border-green-200 rounded p-2">{message}</div>}
+            {error && <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl p-3">{error}</div>}
+            {message && <div className="text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-xl p-3">{message}</div>}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-emerald-700 text-white py-3.5 px-4 rounded-xl font-medium hover:bg-emerald-800 disabled:bg-stone-300 disabled:text-stone-500 transition-colors shadow-sm"
             >
               {loading ? 'Updating password...' : 'Set new password'}
             </button>

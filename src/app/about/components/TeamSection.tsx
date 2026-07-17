@@ -25,18 +25,18 @@ export default function TeamSection() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-24 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Our Team</h2>
-        <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-semibold text-stone-800 mb-4 text-center">Our Team</h2>
+        <p className="text-lg text-stone-500 text-center mb-16 max-w-2xl mx-auto">
           Mental health professionals, students, and technologists working together to support student wellbeing
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           {team?.map((member, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{member?.name}</h3>
-              <p className="text-indigo-600 font-medium mb-4">{member?.role}</p>
-              <p className="text-gray-700">{member?.description}</p>
+            <div key={index} className="bg-stone-50 rounded-[2rem] border border-stone-100 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all">
+              <h3 className="text-xl font-semibold text-stone-800 mb-2">{member?.name}</h3>
+              <p className="text-emerald-700 font-medium mb-4 text-sm">{member?.role}</p>
+              <p className="text-stone-600 leading-relaxed">{member?.description}</p>
             </div>
           ))}
         </div>

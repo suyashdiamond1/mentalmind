@@ -28,26 +28,26 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-24 px-4 bg-stone-50">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+        <h2 className="text-3xl font-semibold text-stone-800 mb-12 text-center">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqs?.map((faq, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={index} className="bg-white rounded-3xl border border-stone-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="w-full px-8 py-5 text-left flex items-center justify-between hover:bg-stone-50/50 transition-colors"
               >
-                <span className="font-semibold text-gray-900">{faq?.question}</span>
-                <span className="text-2xl text-indigo-600">
+                <span className="font-semibold text-stone-800">{faq?.question}</span>
+                <span className="text-2xl text-emerald-700">
                   {openIndex === index ? '−' : '+'}
                 </span>
               </button>
               {openIndex === index && (
-                <div className="px-6 pb-4">
-                  <p className="text-gray-700 leading-relaxed">{faq?.answer}</p>
+                <div className="px-8 pb-6">
+                  <p className="text-stone-600 leading-relaxed">{faq?.answer}</p>
                 </div>
               )}
             </div>

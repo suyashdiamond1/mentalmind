@@ -8,35 +8,35 @@
 @layer base {
   :root {
     /* Background Colors */
-    --color-background: #FAFAFA; /* gray-50 */
-    --color-foreground: #111827; /* gray-900 */
+    --color-background: #FAFAF8; /* warm stone-50 */
+    --color-foreground: #292524; /* warm stone-800 */
     --color-surface: #FFFFFF; /* white */
     
     /* Border & Input */
-    --color-border: #E5E7EB; /* gray-200 */
-    --color-input: #E5E7EB; /* gray-200 */
-    --color-ring: #3B82F6; /* blue-500 */
+    --color-border: #E7E5E4; /* stone-200 */
+    --color-input: #E7E5E4; /* stone-200 */
+    --color-ring: #4A7C59; /* sage green */
     
     /* Card & Popover */
     --color-card: #FFFFFF; /* white */
-    --color-card-foreground: #111827; /* gray-900 */
+    --color-card-foreground: #292524; /* stone-800 */
     --color-popover: #FFFFFF; /* white */
-    --color-popover-foreground: #111827; /* gray-900 */
+    --color-popover-foreground: #292524; /* stone-800 */
     
     /* Muted */
-    --color-muted: #F3F4F6; /* gray-100 */
-    --color-muted-foreground: #6B7280; /* gray-500 */
+    --color-muted: #F5F5F4; /* stone-100 */
+    --color-muted-foreground: #78716C; /* stone-500 */
     
-    /* Primary - Deep Intelligence Blue */
-    --color-primary: #1E40AF; /* blue-800 */
+    /* Primary - Zen Sage Green */
+    --color-primary: #4A7C59; /* sage green */
     --color-primary-foreground: #FFFFFF; /* white */
     
-    /* Secondary - Neural Network Charcoal */
-    --color-secondary: #0F172A; /* slate-900 */
-    --color-secondary-foreground: #FFFFFF; /* white */
+    /* Secondary - Soft Earth */
+    --color-secondary: #E6E2DD; /* soft warm gray */
+    --color-secondary-foreground: #4A3C31; /* dark brown */
     
-    /* Accent - Innovation Cyan */
-    --color-accent: #06B6D4; /* cyan-500 */
+    /* Accent - Terracotta */
+    --color-accent: #E07A5F; /* terracotta */
     --color-accent-foreground: #FFFFFF; /* white */
     
     /* Destructive/Error */
@@ -54,11 +54,11 @@
     --color-warning-foreground: #FFFFFF; /* white */
     
     /* Additional Brand Colors */
-    --color-clarity-blue: #3B82F6; /* blue-500 */
-    --color-action-blue: #2563EB; /* blue-600 */
-    --color-text-primary: #111827; /* gray-900 */
-    --color-text-secondary: #6B7280; /* gray-500 */
-    --color-thoughtful-gray: #64748B; /* slate-500 */
+    --color-clarity-blue: #A3B18A; /* pale sage */
+    --color-action-blue: #4A7C59; /* sage green */
+    --color-text-primary: #292524; /* stone-800 */
+    --color-text-secondary: #78716C; /* stone-500 */
+    --color-thoughtful-gray: #A8A29E; /* stone-400 */
     
     /* Spacing & Layout */
     --spacing-base: 8px;

@@ -29,27 +29,27 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
-        <h2 className="text-2xl font-semibold mb-4">Reset your password</h2>
-        <p className="text-sm text-gray-600 mb-6">Enter your email and we'll send a secure recovery link.</p>
+    <div className="min-h-screen flex items-center justify-center bg-stone-50 px-4">
+      <div className="max-w-md w-full bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-stone-100 p-8 sm:p-10">
+        <h2 className="text-2xl font-semibold text-stone-800 mb-4">Reset your password</h2>
+        <p className="text-sm text-stone-500 mb-8">Enter your email and we'll send a secure recovery link.</p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium text-stone-700 mb-2">Email</label>
             <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent" />
+              className="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors" />
           </div>
 
           {error && <div className="text-sm text-red-600">{error}</div>}
           {message && <div className="text-sm text-green-600">{message}</div>}
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between pt-2">
             <button type="submit" disabled={loading}
-              className="bg-indigo-600 text-white py-2 px-4 rounded-lg disabled:opacity-50">
+              className="bg-emerald-700 text-white py-2.5 px-6 rounded-xl font-medium hover:bg-emerald-800 transition-colors disabled:opacity-50 shadow-sm">
               {loading ? 'Sending...' : 'Send recovery email'}
             </button>
-            <Link href="/login" className="text-sm text-indigo-600 hover:underline">Back to sign in</Link>
+            <Link href="/login" className="text-sm text-emerald-700 hover:text-emerald-800 font-medium transition-colors">Back to sign in</Link>
           </div>
         </form>
       </div>

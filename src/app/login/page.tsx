@@ -39,16 +39,16 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+    <div className="min-h-screen flex items-center justify-center bg-stone-50 px-4 sm:px-6">
+      <div className="max-w-md w-full bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-stone-100 p-8 sm:p-10">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-          <p className="text-gray-600">Sign in to your mental health support account</p>
+          <h1 className="text-3xl font-semibold text-stone-800 mb-2">Welcome Back</h1>
+          <p className="text-stone-500 text-sm">Sign in to your mental health support account</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-stone-700 mb-2">
               Email Address
             </label>
             <input
@@ -56,14 +56,14 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors shadow-sm text-stone-800"
               placeholder="your.email@university.edu"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-stone-700 mb-2">
               Password
             </label>
             <input
@@ -71,25 +71,25 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors shadow-sm text-stone-800"
               placeholder="••••••••"
               required
             />
             <div className="mt-2 text-right">
-              <a href="/forgot-password" className="text-sm text-indigo-600 hover:underline">Forgot password?</a>
+              <a href="/forgot-password" className="text-sm font-medium text-emerald-700 hover:text-emerald-800 transition-colors">Forgot password?</a>
             </div>
           </div>
 
           {error && (
-            <div className="bg-red-50 border-l-4 border-red-400 p-4">
-              <div className="flex">
+            <div className="bg-red-50 border border-red-100 rounded-xl p-4 shadow-sm">
+              <div className="flex items-center gap-3">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <div className="ml-3">
-                  <p className="text-sm text-red-700">{error}</p>
+                <div>
+                  <p className="text-sm text-red-800 font-medium">{error}</p>
                 </div>
               </div>
             </div>
@@ -98,19 +98,19 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-emerald-700 text-white py-3.5 rounded-xl font-medium hover:bg-emerald-800 transition-colors shadow-sm disabled:bg-stone-300 disabled:text-stone-500 disabled:cursor-not-allowed"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 
-        <div className="mt-4">
+        <div className="mt-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200" />
+              <div className="w-full border-t border-stone-200" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-2 text-gray-500">Or continue with</span>
+              <span className="bg-white px-3 text-stone-500 font-medium">Or continue with</span>
             </div>
           </div>
 
@@ -118,7 +118,7 @@ export default function LoginPage() {
             onClick={handleGoogleSignIn}
             type="button"
             disabled={oauthLoading}
-            className="mt-4 w-full inline-flex items-center justify-center gap-3 border border-gray-300 py-2 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+            className="mt-6 w-full inline-flex items-center justify-center gap-3 border border-stone-200 py-3.5 rounded-xl font-medium text-stone-700 hover:bg-stone-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
           >
             <svg className="w-5 h-5" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
               <path fill="#4285F4" d="M533.5 278.4c0-18.5-1.6-36.2-4.6-53.4H272v101h146.9c-6.3 33.8-25 62.5-53.6 81.6v67.9h86.6c50.6-46.6 81.6-115.3 81.6-197.1z"/>
@@ -130,17 +130,17 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <div className="mt-6 text-center">
-          <p className="text-gray-600 text-sm">
+        <div className="mt-8 text-center">
+          <p className="text-stone-600 text-sm">
             Don't have an account?{' '}
-            <Link href="/signup" className="text-indigo-600 hover:text-indigo-700 font-medium">
+            <Link href="/signup" className="text-emerald-700 hover:text-emerald-800 font-medium transition-colors">
               Sign up
             </Link>
           </p>
         </div>
 
-        <div className="mt-6 text-center text-xs text-gray-500">
-          <p>If you're in crisis, please call 988 immediately</p>
+        <div className="mt-6 text-center text-xs font-medium text-stone-400">
+          <p>If you're in crisis, please call <strong className="text-red-400">988</strong> immediately</p>
         </div>
       </div>
     </div>

@@ -16,8 +16,8 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/homepage" className="flex items-center gap-3">
-          <Image src="/assets/images/logo.svg" alt="MentalMind logo" width={140} height={48} priority />
-          <span className="hidden md:inline-block text-2xl font-bold text-indigo-600">Mental Health Support</span>
+          <Image src="/assets/images/logo.png" alt="MentalMind logo" width={64} height={64} className="rounded-full" priority />
+          <span className="hidden md:inline-block text-2xl font-bold text-emerald-700">Mental Health Support</span>
         </Link>
         
         <button
@@ -30,16 +30,19 @@ export default function Header() {
         </button>
 
         <div className={`${isMenuOpen ? 'block' : 'hidden'} md:flex md:items-center gap-6 absolute md:relative top-full left-0 right-0 bg-white md:bg-transparent p-4 md:p-0 shadow-md md:shadow-none`}>
-          <Link href="/homepage" className="block py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+          <Link href="/homepage" className="block py-2 text-stone-600 hover:text-emerald-600 font-medium transition-colors">
             Home
           </Link>
-          <Link href="/contact" className="block py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+          <Link href="/about" className="block py-2 text-stone-600 hover:text-emerald-600 font-medium transition-colors">
+            About Us
+          </Link>
+          <Link href="/contact" className="block py-2 text-stone-600 hover:text-emerald-600 font-medium transition-colors">
             Contact
           </Link>
           
           {user ? (
             <>
-              <Link href="/dashboard" className="block py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+              <Link href="/dashboard" className="block py-2 text-stone-600 hover:text-emerald-600 font-medium transition-colors">
                 Dashboard
               </Link>
               <button
@@ -51,10 +54,10 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link href="/login" className="block py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+              <Link href="/login" className="block py-2 text-stone-600 hover:text-emerald-600 font-medium transition-colors">
                 Login
               </Link>
-              <Link href="/signup" className="block py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+              <Link href="/signup" className="block py-2 px-6 bg-emerald-700 text-white font-medium rounded-xl hover:bg-emerald-800 transition-colors shadow-sm">
                 Get Started
               </Link>
             </>

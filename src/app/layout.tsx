@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/index.css';
 import { AuthProvider } from '@/contexts/AuthContext';
+import { MLCProvider } from '@/contexts/MLCContext';
+import SOSButton from '@/components/common/SOSButton';
 
 export const viewport = {
   width: 'device-width',
@@ -37,8 +39,8 @@ export const metadata = {
     creator: '@mentalmind',
   },
   icons: {
-    icon: [{ url: '/assets/images/logo.svg', type: 'image/svg+xml' }],
-    apple: '/apple-touch-icon.png',
+    icon: [{ url: '/assets/images/logo.png', type: 'image/png' }],
+    apple: [{ url: '/assets/images/logo.png' }],
   },
   manifest: '/manifest.json',
   alternates: {
@@ -66,7 +68,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://static.rocket.new" />
-        
         
         {/* Breadcrumb Schema */}
         <script
@@ -96,7 +97,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'MentalMind',
               url: 'https://mentalmind.in',
-              logo: 'https://mentalmind.in/assets/images/logo.svg',
+              logo: 'https://mentalmind.in/assets/images/logo.png',
               description: 'AI-powered mental health support platform for students',
               foundingDate: '2024',
               areaServed: 'Worldwide',
@@ -151,9 +152,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <AuthProvider>
-          {children}
+          <MLCProvider>
+            <SOSButton />
+            {children}
+          </MLCProvider>
         </AuthProvider>
         <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fainexus5450back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.11" />
         <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1" />

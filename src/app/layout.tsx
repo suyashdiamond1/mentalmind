@@ -64,7 +64,6 @@ export default function RootLayout({
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="theme-color" content="#6366f1" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://mentalmind.in" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://static.rocket.new" />

@@ -14,9 +14,12 @@ export default function Footer() {
           </p>
         </div>
         
-        <nav className="flex items-center gap-8">
+        <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
           <Link href="/about" className="text-sm font-semibold text-stone-500 hover:text-emerald-600 transition-colors">
             About Us
+          </Link>
+          <Link href="/funding-and-impact" className="text-sm font-semibold text-stone-500 hover:text-emerald-600 transition-colors">
+            Funding &amp; Impact
           </Link>
           <Link href="/contact" className="text-sm font-semibold text-stone-500 hover:text-emerald-600 transition-colors">
             Contact

@@ -5,9 +5,9 @@ import {
   ArrowDownIcon,
   ArrowRightIcon,
   BuildingLibraryIcon,
+  ChatBubbleLeftRightIcon,
   CheckBadgeIcon,
   CircleStackIcon,
-  DocumentTextIcon,
   GlobeAltIcon,
   HeartIcon,
   SparklesIcon,
@@ -19,12 +19,12 @@ import styles from './funding-impact.module.css';
 export const metadata: Metadata = {
   title: 'Funding & Impact | MentalMind Foundation',
   description:
-    'Explore MentalMind’s ₹2 crore approved project grant from Let’s Educate India Foundations, its funding plan and its reach of 5,000+ average monthly unique users.',
+    'Explore MentalMind’s ₹2 crore approved project grant, 56,000+ student interactions, 10,000+ students helped and 5,000+ average monthly unique users.',
   alternates: { canonical: 'https://mentalmind.in/funding-and-impact' },
   openGraph: {
     title: 'Funding & Impact | MentalMind Foundation',
     description:
-      '₹2 crore in approved project funding. 5,000+ average monthly unique users. A wider circle of mental wellbeing support.',
+      '₹2 crore in approved project funding. 56,000+ student interactions. 10,000+ students helped. 5,000+ average monthly unique users.',
     url: 'https://mentalmind.in/funding-and-impact',
     type: 'website',
   },
@@ -91,13 +91,9 @@ export default function FundingAndImpactPage() {
               <a href="#funding-plan" className={styles.primaryButton}>
                 Explore the funding plan <ArrowDownIcon aria-hidden="true" />
               </a>
-              <a href="#community-impact" className={styles.textLink}>
+              <a href="#student-impact" className={styles.textLink}>
                 Our community impact <ArrowRightIcon aria-hidden="true" />
               </a>
-            </div>
-            <div className={styles.heroNote}>
-              <HeartIcon aria-hidden="true" />
-              <span>Non-repayable project grant · Not towards corpus</span>
             </div>
           </div>
 
@@ -119,12 +115,45 @@ export default function FundingAndImpactPage() {
           </div>
         </section>
 
-        <div className={`${styles.contextStrip} ${styles.container}`}>
-          <span>
-            <BuildingLibraryIcon aria-hidden="true" /> MentalMind Foundation
-          </span>
-          <span>Student &amp; youth mental wellbeing</span>
-        </div>
+        <section
+          id="student-impact"
+          className={`${styles.studentImpactSection} ${styles.container}`}
+          aria-labelledby="student-impact-title"
+        >
+          <div className={styles.studentImpactCard}>
+            <div className={styles.studentImpactIntro}>
+              <p className={styles.eyebrow}>01 / Student impact</p>
+              <h2 id="student-impact-title">
+                More conversations.
+                <br />
+                <em>More support.</em>
+              </h2>
+              <p className={styles.studentImpactDescription}>
+                A space to talk, find support and take a step towards better mental wellbeing.
+              </p>
+            </div>
+            <dl className={styles.studentImpactMetrics}>
+              <div className={styles.studentImpactMetric}>
+                <dt>Student interactions</dt>
+                <dd>
+                  <span className={styles.studentImpactIcon} aria-hidden="true">
+                    <ChatBubbleLeftRightIcon />
+                  </span>
+                  56K<span className={styles.studentImpactPlus}>+</span>
+                </dd>
+              </div>
+              <div className={styles.studentImpactMetric}>
+                <dt>Students helped</dt>
+                <dd>
+                  <span className={styles.studentImpactIcon} aria-hidden="true">
+                    <AcademicCapIcon />
+                  </span>
+                  10K<span className={styles.studentImpactPlus}>+</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </section>
 
         <section
           id="community-impact"
@@ -132,7 +161,7 @@ export default function FundingAndImpactPage() {
           aria-labelledby="community-title"
         >
           <div className={styles.communityCopy}>
-            <p className={styles.eyebrow}>01 / Our community impact</p>
+            <p className={styles.eyebrow}>02 / Our community impact</p>
             <h2 id="community-title">
               A growing circle
               <br />
@@ -207,7 +236,7 @@ export default function FundingAndImpactPage() {
         >
           <div className={styles.sectionHeading}>
             <div>
-              <p className={styles.eyebrow}>02 / What comes next</p>
+              <p className={styles.eyebrow}>03 / What comes next</p>
               <h2 id="priorities-title">Turning support into possibility.</h2>
             </div>
             <p>The approved funding is intended to support these areas of the initiative.</p>
@@ -269,14 +298,6 @@ export default function FundingAndImpactPage() {
                 </li>
               ))}
             </ol>
-            <div className={styles.reportingNote}>
-              <DocumentTextIcon aria-hidden="true" />
-              <p>
-                Each later tranche requires a utilisation certificate and progress report for the
-                previous tranche. The first release is subject to the grant agreement and required
-                documentation.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -299,6 +320,13 @@ export default function FundingAndImpactPage() {
             Connect with us <ArrowRightIcon aria-hidden="true" />
           </Link>
         </section>
+
+        <div className={`${styles.contextStrip} ${styles.container}`}>
+          <span>
+            <BuildingLibraryIcon aria-hidden="true" /> MentalMind Foundation
+          </span>
+          <span>Student &amp; youth mental wellbeing</span>
+        </div>
       </main>
       <footer className={styles.footer}>
         <div className={styles.container}>
